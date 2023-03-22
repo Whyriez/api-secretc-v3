@@ -36,12 +36,14 @@ export const createUsers = async (req, res) => {
   const hashPassword = await argon2.hash(password);
 
   const usrname = await Users.findOne({
-    where: req.params.name,
+    where: {
+      name: name,
+    },
   });
 
   const emil = await Users.findOne({
     where: {
-      email: req.params.email,
+      email: email,
     },
   });
 
