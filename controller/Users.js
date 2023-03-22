@@ -35,6 +35,14 @@ export const createUsers = async (req, res) => {
     );
   const hashPassword = await argon2.hash(password);
 
+  const response = await Users.findOne({
+    where: req.params.name,
+  });
+
+  if (response) {
+    res.status(400).json({ message: "Username Sudah Ada" });
+  }
+
   try {
     await Users.create({
       name: name,
