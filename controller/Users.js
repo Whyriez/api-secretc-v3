@@ -35,12 +35,20 @@ export const createUsers = async (req, res) => {
     );
   const hashPassword = await argon2.hash(password);
 
-  const response = await Users.findOne({
+  const usrname = await Users.findOne({
     where: req.params.name,
   });
 
-  if (response) {
+  const emil = await Users.findOne({
+    where: req.params.email,
+  });
+
+  if (usrname) {
     res.status(400).json({ message: "Username Sudah Ada" });
+  }
+
+  if (emil) {
+    res.status(400).json({ message: "Email Sudah Ada" });
   }
 
   try {
