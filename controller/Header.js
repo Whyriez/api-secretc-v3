@@ -23,6 +23,19 @@ export const getHeaderById = async (req, res) => {
   }
 };
 
+export const getHeaderByName = async (req, res) => {
+  try {
+    const response = await Header.findOne({
+      where: {
+        nama: req.params.id,
+      },
+    });
+    res.status(200).json(response);
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
 export const createHeader = async (req, res) => {
   try {
     await Header.create(req.body);

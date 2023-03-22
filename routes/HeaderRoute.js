@@ -2,6 +2,7 @@ import express from "express";
 import {
   getHeader,
   getHeaderById,
+  getHeaderByName,
   createHeader,
   updateHeader,
   deleteHeader,
@@ -11,6 +12,7 @@ const router = express.Router();
 
 router.get("/user_header", getHeader);
 router.get("/user_header/:id", getHeaderById);
+router.get("/user_header/:id", getHeaderByName);
 router.post("/user_header", createHeader);
 router.patch("/user_header/:id", updateHeader);
 router.delete("/user_header/:id", deleteHeader);
