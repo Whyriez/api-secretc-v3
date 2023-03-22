@@ -12,7 +12,7 @@ const router = express.Router();
 
 router.get("/user_header", getHeader);
 router.get("/user_header/:id", getHeaderById);
-router.get("/user_header/:name", getHeaderByName);
+router.get("/header-name/:name", getHeaderByName);
 router.post("/user_header", createHeader);
 router.patch("/user_header/:id", updateHeader);
 router.delete("/user_header/:id", deleteHeader);
