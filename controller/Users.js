@@ -44,11 +44,11 @@ export const createUsers = async (req, res) => {
   });
 
   if (usrname) {
-    return req.status(400).json({ message: "Username Sudah Ada" });
+    return res.status(400).json({ message: "Username Sudah Ada" });
   }
 
   if (emil) {
-    return req.status(400).json({ message: "Email Sudah Ada" });
+    return res.status(400).json({ message: "Email Sudah Ada" });
   }
 
   try {
