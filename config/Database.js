@@ -13,8 +13,8 @@ import { Sequelize } from "sequelize";
 
 const db = new Sequelize(
   "secret-chat",
-  "ynwmoonzqr6hqfxp020b",
-  "pscale_pw_cEAUOs6N3bUvIe2bSEaWBCW9o4GwGiJHmiPDJAKe6lj",
+  "qz5k2iglft2zfkmi963k",
+  "pscale_pw_Rut2EsTcL9n3ggCCkyLSvilELYlaSfjFE3fCn3eh6ML",
   {
     host: "aws.connect.psdb.cloud",
     dialect: "mysql",
