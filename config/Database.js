@@ -12,11 +12,7 @@ import { Sequelize } from "sequelize";
 
 
 const db = new Sequelize(
-<<<<<<< HEAD
   process.env.DATABASE,
-=======
-  "secret-chat",
->>>>>>> 410f9f06431038516f628dd45d72f85e476ae6e3
   process.env.USERNAME,
   process.env.PASSWORD,
   {
