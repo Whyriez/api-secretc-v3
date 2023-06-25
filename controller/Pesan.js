@@ -1,5 +1,6 @@
 import Pesan from "../models/PesanModel.js";
 import Komen from "../models/KomenModel.js";
+import Header from "../models/HeaderUser.js";
 import db from "../config/Database.js";
 
 export const getPesan = async (req, res) => {
@@ -17,8 +18,9 @@ export const getPesanById = async (req, res) => {
       where: {
         uuid: req.params.id,
       },
-      order: [["id", "DESC"]],
+      order: [["is_read", "ASC"]],
     });
+
     res.status(200).json(response);
   } catch (error) {
     console.log(error.message);
@@ -49,12 +51,15 @@ export const createPesan = async (req, res) => {
 
 export const updatePesan = async (req, res) => {
   try {
-    await Pesan.update(req.body, {
+     const data = req.body
+     await Pesan.update(req.body, {
       where: {
         id: req.params.id,
       },
     });
-    res.status(200).json({ msg: "Pesan Updated" });
+   
+
+    res.status(200).json(data.is_read);
   } catch (error) {
     console.log(error.message);
   }
@@ -79,7 +84,7 @@ export const deletePesanByid = async (req, res) => {
         id: req.params.id,
       },
     });
-    res.status(200).json({ msg: "Pesan Deleted" });
+    res.status(204).json(1);
   } catch (error) {
     console.log(error.message);
   }

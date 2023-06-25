@@ -39,7 +39,11 @@ export const getHeaderByName = async (req, res) => {
 export const createHeader = async (req, res) => {
   try {
     await Header.create(req.body);
-    res.status(201).json({ msg: "Header Created" });
+    const data = req.body
+    res.status(201).json({ 
+      data: data,
+      code: 200,
+      message: "Header Created" });
   } catch (error) {
     console.log(error.message);
   }
@@ -52,7 +56,7 @@ export const updateHeader = async (req, res) => {
         id: req.params.id,
       },
     });
-    res.status(200).json({ msg: "Header Updated" });
+    res.status(200).json(req.body);
   } catch (error) {
     console.log(error.message);
   }
