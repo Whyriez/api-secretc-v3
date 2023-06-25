@@ -18,7 +18,7 @@ export const Login = async (req, res) => {
   res
     .status(200)
     .json({
-      user: { uuid, name, email, role },
+      data: { uuid, name, email, role },
       code: 200,
       message: "Berhasil Login",
     });
